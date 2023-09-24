@@ -27,7 +27,20 @@ export const POST = async ( req) =>{
 
 export const DELETE =  (req) =>{
     const id = new URL(req.url).searchParams.get("id")
-    post = post.filter((post)=> post.id != id )
+    post = post.filter((posts)=> posts.id != id )
     return NextResponse.json({message: " Post successfully Deleted"})
 
+}
+
+export const PUT = async (req) =>{
+    const body = await req.json()
+    post = post.map((posts)=>{
+        if (posts.id = body.id) {
+            return body
+        }
+        else{
+            return posts
+        }
+    })
+    return NextResponse.json({message: " Post successfully updated"})
 }

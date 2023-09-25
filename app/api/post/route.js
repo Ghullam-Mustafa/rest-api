@@ -23,3 +23,11 @@ export const POST = async ( req) =>{
     post.push(body);
     return NextResponse.json({message: " Post successfully created"})
 }
+
+
+export const DELETE =  (req) =>{
+    const id = new URL(req.url).searchParams.get("id")
+    post = post.filter((post)=> post.id != id )
+    return NextResponse.json({message: " Post successfully Deleted"})
+
+}
